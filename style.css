@@ -294,7 +294,7 @@ section {
 }
 
 .package-card.featured::before {
-    content: 'Most Popular';
+    content: 'Am beliebtesten';
     position: absolute;
     top: -12px;
     right: 20px;
