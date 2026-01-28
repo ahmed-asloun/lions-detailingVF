@@ -1436,3 +1436,42 @@ section {
     padding: 0 16px 16px;
   }
 }
+.fixed-call-btn svg {
+  width: 34px;
+  height: 34px;
+}
+
+/* Optional: slightly larger on hover */
+.fixed-call-btn:hover svg {
+  transform: scale(1.08);
+}
+/* WhatsApp button above call button */
+.fixed-whatsapp-btn {
+  bottom: 86px; /* distance above phone button */
+}
+/* Fix hero headline cropping on mobile (long German words) */
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 2rem;            /* slightly smaller */
+    letter-spacing: 0.03em;     /* less spacing = more room */
+    padding: 0 10px;            /* keep away from edges */
+
+    overflow-wrap: anywhere;    /* allows breaking long words */
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .hero p {
+    padding: 0 10px;
+  }
+}
+/* Mobile: fix floating buttons being cut off */
+@media (max-width: 576px) {
+  .fixed-call-btn {
+    bottom: calc(20px + env(safe-area-inset-bottom));
+  }
+
+  .fixed-whatsapp-btn {
+    bottom: calc(92px + env(safe-area-inset-bottom));
+  }
+}
