@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vielen Dank | Lions Aufbereitung</title>
+
+  <!-- Fonts (match your site) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-dark:#0b0b0b;
+      --surface-dark:#101010;
+      --text-primary:#f4f4f4;
+      --text-muted:rgba(255,255,255,0.72);
+      --gold-primary:#d4a017;
+      --gold-secondary:#b88912;
+      --border-gold:rgba(212,160,23,0.35);
+    }
+
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      min-height:100vh;
+      background:
+        radial-gradient(900px 600px at 15% 15%, rgba(212,160,23,0.10), transparent 60%),
+        radial-gradient(900px 600px at 85% 75%, rgba(212,160,23,0.08), transparent 65%),
+        linear-gradient(180deg, rgba(0,0,0,0.9), rgba(0,0,0,1));
+      color:var(--text-primary);
+      font-family:'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:28px 18px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:980px;
+      padding:26px;
+      border:1px solid var(--border-gold);
+      background:rgba(16,16,16,0.72);
+      box-shadow:0 18px 60px rgba(0,0,0,0.55);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .wrap::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        linear-gradient(120deg, rgba(212,160,23,0.18), transparent 45%),
+        linear-gradient(300deg, rgba(212,160,23,0.10), transparent 50%);
+      pointer-events:none;
+      opacity:0.75;
+    }
+
+    .content{
+      position:relative;
+      z-index:1;
+      display:grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap:22px;
+      align-items:start;
+    }
+
+    @media (max-width: 860px){
+      .content{grid-template-columns:1fr}
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:14px;
+    }
+
+    /* If you have a logo image, put it in the same folder and rename accordingly */
+    .brand img{
+      height:34px;
+      width:auto;
+      display:block;
+    }
+
+    .brand-name{
+      font-family:'Cinzel', serif;
+      letter-spacing:0.12em;
+      color:var(--gold-primary);
+      font-size:0.95rem;
+      text-transform:uppercase;
+      opacity:0.95;
+    }
+
+    h1{
+      font-family:'Cinzel', serif;
+      margin:10px 0 10px;
+      font-size: clamp(28px, 3vw, 38px);
+      letter-spacing:0.06em;
+      color:var(--gold-primary);
+    }
+
+    .lead{
+      margin:0 0 14px;
+      color:var(--text-muted);
+      line-height:1.65;
+      font-size:1.05rem;
+      max-width:58ch;
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(212,160,23,0.28);
+      background:rgba(0,0,0,0.35);
+      border-radius:999px;
+      color:rgba(255,255,255,0.80);
+      font-size:0.95rem;
+      margin-top:6px;
+    }
+
+    .check{
+      width:18px;height:18px;
+      border-radius:50%;
+      border:1px solid rgba(212,160,23,0.55);
+      display:grid;
+      place-items:center;
+      color:var(--gold-primary);
+      font-weight:600;
+      line-height:1;
+    }
+
+    .actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:13px 16px;
+      border-radius:0;
+      font-family:'Cinzel', serif;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      font-size:0.92rem;
+      cursor:pointer;
+      text-decoration:none;
+      transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+
+    .btn-primary{
+      background:var(--gold-primary);
+      color:#0b0b0b;
+      border:1px solid var(--gold-primary);
+      box-shadow:0 12px 28px rgba(212,160,23,0.14);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      box-shadow:0 16px 36px rgba(212,160,23,0.20);
+    }
+
+    .btn-outline{
+      background:transparent;
+      color:var(--gold-primary);
+      border:1px solid rgba(212,160,23,0.50);
+    }
+
+    .btn-outline:hover{
+      transform:translateY(-2px);
+      border-color:var(--gold-primary);
+      box-shadow:0 16px 36px rgba(212,160,23,0.12);
+    }
+
+    .card{
+      position:relative;
+      z-index:1;
+      border:1px solid rgba(212,160,23,0.25);
+      background:rgba(0,0,0,0.35);
+      padding:18px;
+      min-height: 100%;
+    }
+
+    .card h3{
+      font-family:'Cinzel', serif;
+      color:var(--gold-primary);
+      letter-spacing:0.08em;
+      margin:0 0 10px;
+      font-size:1.05rem;
+      text-transform:uppercase;
+    }
+
+    .card p{
+      margin:0 0 10px;
+      color:var(--text-muted);
+      line-height:1.6;
+      font-size:0.98rem;
+    }
+
+    .meta{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .meta a{
+      color:rgba(255,255,255,0.85);
+      text-decoration:none;
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid rgba(212,160,23,0.20);
+      background:rgba(0,0,0,0.25);
+      transition:border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .meta a:hover{
+      transform:translateY(-1px);
+      border-color:rgba(212,160,23,0.55);
+    }
+
+    .meta svg{
+      width:18px;height:18px;
+      fill:none;
+      stroke:var(--gold-primary);
+      stroke-width:1.7;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+      flex-shrink:0;
+    }
+
+    .small{
+      margin-top:14px;
+      font-size:0.9rem;
+      color:rgba(255,255,255,0.60);
+      line-height:1.6;
+    }
+
+    .small a{ color:var(--gold-primary); text-decoration:none; }
+    .small a:hover{ text-decoration:underline; }
+
+    /* Accessibility focus */
+    a:focus-visible{
+      outline:2px solid rgba(212,160,23,0.9);
+      outline-offset:3px;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap" role="main" aria-label="Dankesseite">
+    <div class="content">
+      <section>
+        <div class="brand">
+          <!-- Optional logo image. If you have it, place file and update src. Otherwise remove img line. -->
+          <img src="Images/Logo_klein.png" alt="Velvet Glove Auto Spa">
+        </div>
+
+        <h1>Vielen Dank</h1>
+        <p class="lead">
+          Wir haben Ihre Anfrage erhalten. Unser Team wird sich so schnell wie möglich bei Ihnen melden, um die Details zu bestätigen und Ihren Service zu planen.
+        </p>
+
+        <div class="pill" id="sourcePill" style="display:none;">
+          <span class="check">✓</span>
+          Erfolgreich über das Website-Formular übermittelt
+        </div>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="tel:+491632242611" aria-label="Jetzt anrufen">
+            Jetzt anrufen
+          </a>
+          <a class="btn btn-outline" href="index.html" aria-label="Zurück zur Startseite">
+            Zur Startseite
+          </a>
+          <a class="btn btn-outline" href="index.html#packages" aria-label="Pakete ansehen">
+            Pakete ansehen
+          </a>
+        </div>
+
+        <p class="small">
+          Wenn Sie schnellere Hilfe benötigen, rufen Sie uns direkt an oder besuchen Sie unseren Standort auf Google Maps.
+        </p>
+      </section>
+
+      <aside class="card" aria-label="Kontaktdaten">
+        <h3>Kontakt</h3>
+        <p>Hannöversche Str. 5a<br>44143 Dortmund, Deutschland</p>
+
+        <div class="meta">
+          <a href="tel:+491632242611" aria-label="Anrufen +49 163 2242611">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+                19.86 19.86 0 0 1-8.63-3.07
+                19.5 19.5 0 0 1-6-6
+                19.86 19.86 0 0 1-3.07-8.67
+                A2 2 0 0 1 4.11 2h3
+                a2 2 0 0 1 2 1.72
+                12.34 12.34 0 0 0 .7 2.81
+                a2 2 0 0 1-.45 2.11L8.09 9.91
+                a16 16 0 0 0 6 6l1.27-1.27
+                a2 2 0 0 1 2.11-.45
+                12.34 12.34 0 0 0 2.81.7
+                A2 2 0 0 1 22 16.92z"/>
+            </svg>
+            +49 163 2242611
+          </a>
+
+          <a
+            href="https://www.google.com/maps/place/Lions+Aufbereitung/data=!4m2!3m1!1s0x0:0x7b33a030a1b700ab?sa=X&ved=1t:2428&ictx=111"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Standort in Google Maps öffnen"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s7-7 7-12a7 7 0 1 0-14 0c0 5 7 12 7 12z"></path>
+              <circle cx="12" cy="10" r="2.5"></circle>
+            </svg>
+            In Google Maps öffnen
+          </a>
+        </div>
+
+      </aside>
+    </div>
+  </main>
+
+  <script>
+    // Show a subtle confirmation detail if redirected from the form:
+    // thank-you.html?from=form
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('from') === 'form') {
+      const pill = document.getElementById('sourcePill');
+      if (pill) pill.style.display = 'inline-flex';
+    }
+  </script>
+</body>
+</html>
